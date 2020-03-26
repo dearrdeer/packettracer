@@ -1,0 +1,98 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname E-R-1
+!
+!
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524BX06-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Loopback1
+ ip address 10.0.40.1 255.255.255.0
+!
+interface GigabitEthernet0/0
+ ip address 90.100.0.10 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/2
+ ip address 90.100.0.2 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 80.100.0.0 255.255.255.252 90.100.0.9 
+ip route 80.100.0.0 255.255.255.252 90.100.0.1 
+ip route 70.150.0.12 255.255.255.252 90.100.0.1 
+ip route 70.150.0.12 255.255.255.252 90.100.0.9 
+ip route 70.150.0.16 255.255.255.252 90.100.0.9 
+ip route 70.150.0.16 255.255.255.252 90.100.0.1 
+ip route 70.150.0.4 255.255.255.252 90.100.0.1 
+ip route 70.150.0.4 255.255.255.252 90.100.0.9 
+ip route 70.150.0.8 255.255.255.252 90.100.0.9 
+ip route 70.150.0.8 255.255.255.252 90.100.0.1 
+ip route 70.150.0.0 255.255.255.252 90.100.0.1 
+ip route 70.150.0.0 255.255.255.252 90.100.0.9 
+ip route 90.100.0.4 255.255.255.252 90.100.0.1 
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
